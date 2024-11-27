@@ -13,19 +13,19 @@ namespace Todo.Core
 
         public Task<IEnumerable<TodoItem>> GetAll()
         {
-            return TaskEx.Delay(1500)
+            return Task.Delay(1500)
             .ContinueWith<IEnumerable<TodoItem>>(t => tasks.Values);
         }
 
         public Task Add(TodoItem todoItem)
         {
-            return TaskEx.Delay(1500)
+            return Task.Delay(1500)
                 .ContinueWith(t => tasks.Add(currentId++, todoItem));
         }
 
         public Task Delete(int id)
         {
-            return TaskEx.Delay(1500)
+            return Task.Delay(1500)
                 .ContinueWith(t =>
                 {
                     if (tasks.ContainsKey(id))
@@ -35,7 +35,7 @@ namespace Todo.Core
 
         public Task<TodoItem> Get(int id)
         {
-            return TaskEx.Delay(1500)
+            return Task.Delay(1500)
                 .ContinueWith(t =>
                 {
                     if (tasks.ContainsKey(id))

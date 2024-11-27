@@ -20,6 +20,7 @@ using TestStack.White.UIItems.MenuItems;
 using TestStack.White.UIItems.WindowStripControls;
 using TestStack.White.Utility;
 using Action = TestStack.White.UIItems.Actions.Action;
+using Condition = System.Windows.Automation.Condition;
 
 namespace TestStack.White.UIItems.WindowItems
 {

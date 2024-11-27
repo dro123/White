@@ -143,8 +143,15 @@ namespace TestStack.White.ScreenMap
 
         private static DataContractSerializer CreateDataContractSerializer()
         {
-            return new DataContractSerializer(
-                typeof(WindowItemsMap), new[]{ typeof(ControlTypeSurrogate)}, int.MaxValue, false, false, new WindowsAutomationTypesSurrogates());
+#if NETFRAMEWORK
+            return new DataContractSerializer(typeof(WindowItemsMap), new[]{ typeof(ControlTypeSurrogate)}, int.MaxValue, false, false, new WindowsAutomationTypesSurrogates());
+#else
+            var result = new DataContractSerializer(typeof(WindowItemsMap), new[]{ typeof(ControlTypeSurrogate)});
+            
+            result.SetSerializationSurrogateProvider(new WindowsAutomationTypesSurrogates());
+
+            return result;
+#endif
         }
 
         private static FileStream CreateFileStream(string fileLocation)

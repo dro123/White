@@ -29,25 +29,21 @@ namespace TestStack.White.UITests
             Directory.CreateDirectory(screenshotDir);
         }
 
-        [OneTimeSetUp]
+        [SetUp]
         public void BaseSetup()
         {
             mainWindow = SetMainWindow(Framework);
         }
 
-        [OneTimeTearDown]
-        public void BaseTeardown()
-        {
-            mainWindow.Dispose();
-        }
-
         [TearDown]
-        public void BaseTestTeardown()
+        public void BaseTeardown()
         {
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
                 TakeScreenshot(TestContext.CurrentContext.Test.FullName);
             }
+
+            mainWindow.Dispose();
         }
 
         readonly ILogger logger = CoreAppXmlConfiguration.Instance.LoggerFactory.Create(typeof(WhiteUITestBase));

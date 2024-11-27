@@ -7,8 +7,13 @@ using System.Windows.Automation;
 
 namespace TestStack.White.ScreenMap
 {
+#if NETFRAMEWORK
     public class WindowsAutomationTypesSurrogates : IDataContractSurrogate
+#else
+    public class WindowsAutomationTypesSurrogates : ISerializationSurrogateProvider
+#endif
     {
+#if NETFRAMEWORK
         public virtual Type GetDataContractType(Type type)
         {
             if (type == typeof (ControlType))
@@ -19,6 +24,18 @@ namespace TestStack.White.ScreenMap
 
             return type;
         }
+#else
+        public virtual Type GetSurrogateType(Type type)
+        {
+            if (type == typeof (ControlType))
+                return typeof (ControlTypeSurrogate);
+
+            if (type == typeof(AutomationProperty))
+                return typeof(AutomationPropertySurrogate);
+
+            return type;
+        }
+#endif
 
         public virtual object GetObjectToSerialize(object obj, Type targetType)
         {

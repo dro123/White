@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup>
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">$([System.IO.Path]::GetFullPath("$(MSBuildThisFileDirectory)"))</SolutionDir>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)\white.snk</AssemblyOriginatorKeyFile>
+    <Authors>Vivek Singh, Jake Ginnivan, TestStack</Authors>
+    <Copyright>Copyright © Jake Ginnivan 2013</Copyright>
+    <Version>2.0.0.0</Version>
+    <RepositoryUrl>https://github.com/TestStack/White</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/TestStack/White</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+    <PackageTags>White UIAutomation Testing UIA WPF Win32 Automation TestStack</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(SolutionDir)\..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="$(SolutionDir)\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>

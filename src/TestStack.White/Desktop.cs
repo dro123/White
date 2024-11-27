@@ -9,7 +9,7 @@ using TestStack.White.Sessions;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.Actions;
 using TestStack.White.UIItems.ListBoxItems;
-using TestStack.White.UIItems.WindowItems;
+using Window = TestStack.White.UIItems.WindowItems.Window;
 
 namespace TestStack.White
 {

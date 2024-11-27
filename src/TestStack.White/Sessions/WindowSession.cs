@@ -10,7 +10,7 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.Actions;
 using TestStack.White.UIItems.Container;
 using TestStack.White.UIItems.Finders;
-using TestStack.White.UIItems.WindowItems;
+using Window = TestStack.White.UIItems.WindowItems.Window;
 
 namespace TestStack.White.Sessions
 {
